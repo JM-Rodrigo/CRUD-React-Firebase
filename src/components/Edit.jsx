@@ -99,7 +99,7 @@ const Edit = () => {
               <button type="submit" class="btn btn-success">Update</button>
             
               
-                      <Link id= 'btn-create'to='/' className='btn btn-success mt-2 mb-2  mx-2'>Cancel</Link>
+              <Link to='/' className='btn btn-danger mx-2'>Cancelar</Link>
                   
 
 

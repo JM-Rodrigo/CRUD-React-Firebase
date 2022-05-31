@@ -1,17 +1,10 @@
-body {
 
-    /*Aplicamos el gradiente para versiones antiguas de navegadores*/
-    background: -webkit-linear-gradient(to right, #80DEEA, #F48FB1);
-    /* Aplicamos el gradiente para versiones recientes de navegadores */
-    background: linear-gradient(to right, #03A9F4, #00E676);
-   
-}
 #btn-create{
 
     /*Aplicamos el gradiente para versiones antiguas de navegadores*/
     background: -webkit-linear-gradient(to right, #03A9F4, #00E676);
     /* Aplicamos el gradiente para versiones recientes de navegadores */
-    background: linear-gradient(to right, #00E676 ,#03A9F4 );
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
  
 }
 

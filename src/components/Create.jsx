@@ -62,8 +62,8 @@ const Create = () => {
                 placeholder="Ingresa el modelo del auto" required/>            
               </div>
 
-              <button type="submit" class="btn btn-success">Store</button>
-              <Link id= 'btn-create'to='/' className='btn btn-success mt-2 mb-2  mx-2'>Cancel</Link>
+              <button type="submit" class="btn btn-primary">Guardar</button>
+              <Link to='/' className='btn btn-danger mx-2'>Cancelar</Link>
 
             </form>
 

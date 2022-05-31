@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import {collection, getDocs, deleteDoc, doc} from 'firebase/firestore'
 import { db } from '../firebase/firebase'
 import Swal from 'sweetalert2'
+import logo from '../img/logobn.png'
 
 
 const Show = () => {
@@ -67,13 +68,16 @@ const Show = () => {
 
   return (
       <>
-      <div className='container mt-5'>
+      <div className='container mt-2'>
+      <img src={logo} alt="img" width="1250" height="200" />
+
           <div className='row'>
                 <div className='col'>
                     <h5>Crea un nuevo registro: </h5>
                   <div className='d-grid gap-2'>
-                      <Link id= 'btn-create'to='/create' className='btn btn-success mt-2 mb-2'>Create</Link>
+                      <Link id= 'btn-create'to='/create' className='btn btn-success mt-2 mb-2'>Añadir</Link>
                   </div>
+                 
                   <table className='table table-borderless mt-4'>
                       <thead>
                           <tr>
@@ -104,6 +108,7 @@ const Show = () => {
 
                   </table>
               </div>
+
           </div>
       </div>
 
