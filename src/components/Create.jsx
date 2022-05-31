@@ -27,7 +27,7 @@ const Create = () => {
       <div className="container">
         <div className="row">
           <div className="col">
-            <h1> CREATE</h1>
+            <h1>CREATE</h1>
 
             <form onSubmit={store}>
 
@@ -38,7 +38,7 @@ const Create = () => {
                 onChange={(e)=>setNombre(e.target.value)} 
                 type="text" 
                 class="form-control"  
-                placeholder="nombre auto"/>            
+                placeholder="Ingresa el nombre del auto" required/>            
               </div>
 
               <div class="mb-3">
@@ -48,7 +48,7 @@ const Create = () => {
                 onChange={(e)=>setMarca(e.target.value)} 
                 type="text" 
                 class="form-control"  
-                placeholder="marca auto"/>            
+                placeholder="Ingresa la marca del auto" required/>            
               </div>
 
               <div class="mb-3">
@@ -58,7 +58,7 @@ const Create = () => {
                 onChange={(e)=>setModelo(e.target.value)} 
                 type="text" 
                 class="form-control"  
-                placeholder="modelo auto"/>            
+                placeholder="Ingresa el modelo del auto" required/>            
               </div>
 
               <button type="submit" class="btn btn-success">Store</button>

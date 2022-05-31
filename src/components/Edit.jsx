@@ -2,7 +2,9 @@ import {useState, useEffect} from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getDoc, updateDoc, doc } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
-import { async } from '@firebase/util';
+import Swal from 'sweetalert2'
+
+
 
 const Edit = () => {
   const [Nombre, setNombre] = useState('')
@@ -18,8 +20,25 @@ const Edit = () => {
     const data ={ Nombre: Nombre,
       Marca: Marca,
       Modelo: Modelo}
+
       await updateDoc(product, data)
-      navigate('/')
+
+      Swal.fire({
+        title: 'Desea guardar los cambios?',
+        showCancelButton: true,
+        confirmButtonText: 'Guardar',
+        cancelButtonText: 'Cancelar',
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          navigate('/')
+         
+        } else if (result.isDenied) {
+          Swal.fire('Cambios no guardados',)
+
+        }
+      })
+
 
   }
 
@@ -53,7 +72,7 @@ const Edit = () => {
                 onChange={(e)=>setNombre(e.target.value)} 
                 type="text" 
                 class="form-control"  
-                placeholder="nombre auto"/>            
+                placeholder="Ingresa el nombre del auto" required/>            
               </div>
 
               <div class="mb-3">
@@ -63,7 +82,7 @@ const Edit = () => {
                 onChange={(e)=>setMarca(e.target.value)} 
                 type="text" 
                 class="form-control"  
-                placeholder="marca auto"/>            
+                placeholder="Ingresa la marca del auto" required/>            
               </div>
 
               <div class="mb-3">
@@ -73,7 +92,7 @@ const Edit = () => {
                 onChange={(e)=>setModelo(e.target.value)} 
                 type="text" 
                 class="form-control"  
-                placeholder="modelo auto"/>            
+                placeholder="Ingresa el modelo del auto" required/>            
               </div>
 
               <button type="submit" class="btn btn-success">Update</button>
