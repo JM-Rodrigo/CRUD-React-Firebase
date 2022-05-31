@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { collection, addDoc } from "firebase/firestore"
 import { db } from "../firebase/firebase"
+import { Link } from 'react-router-dom'
 
 const Create = () => {
   const [Nombre, setNombre] = useState()
@@ -62,7 +63,7 @@ const Create = () => {
               </div>
 
               <button type="submit" class="btn btn-success">Store</button>
-
+              <Link id= 'btn-create'to='/' className='btn btn-success mt-2 mb-2  mx-2'>Cancel</Link>
 
             </form>
 

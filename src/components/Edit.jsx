@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { getDoc, updateDoc, doc } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 import Swal from 'sweetalert2'
+import { Link } from 'react-router-dom'
 
 
 
@@ -96,6 +97,10 @@ const Edit = () => {
               </div>
 
               <button type="submit" class="btn btn-success">Update</button>
+            
+              
+                      <Link id= 'btn-create'to='/' className='btn btn-success mt-2 mb-2  mx-2'>Cancel</Link>
+                  
 
 
             </form>
