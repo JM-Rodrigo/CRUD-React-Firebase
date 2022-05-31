@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import {collection, getDocs, deleteDoc, doc} from 'firebase/firestore'
 import { db } from '../firebase/firebase'
 import Swal from 'sweetalert2'
-import logo from '../img/logobn.png'
+import logo from '../img/logo.png'
 
 
 const Show = () => {
@@ -69,12 +69,14 @@ const Show = () => {
   return (
       <>
       <div className='container mt-2'>
-      <img src={logo} alt="img" width="1250" height="200" />
-
+        <div className='title'>
+            <h1>CRUD REACT-FIREBASE</h1>
+        </div>
+            <img  src={logo} aria-hidden className='img-fluid' alt='Responsive image' />
           <div className='row'>
-                <div className='col'>
-                    <h5>Crea un nuevo registro: </h5>
-                  <div className='d-grid gap-2'>
+                <div className='col mt-2'>
+                    <h3>Crea un nuevo registro: </h3>
+                  <div className='d-grid gap-2 mt-2'>
                       <Link id= 'btn-create'to='/create' className='btn btn-success mt-2 mb-2'>Añadir</Link>
                   </div>
                  
@@ -95,7 +97,7 @@ const Show = () => {
                                       <td>{index.Marca}</td>
                                       <td>{index.Modelo}</td>
                                       <td>
-                                          <Link to={`/edit/${index.id}`} className='btn btn-light'><i className="fa-solid fa-pen"></i></Link>
+                                          <Link to={`/edit/${index.id}`} className='btn btn-primary'><i className="fa-solid fa-pen"></i></Link>
                                           <button  onClick={() => {confirmDelete(index.id)}} className='btn btn-danger mx-2'><i className="fa-solid fa-trash-can"></i></button>
 
                                       </td>

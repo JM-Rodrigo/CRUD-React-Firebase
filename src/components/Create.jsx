@@ -32,37 +32,37 @@ const Create = () => {
 
             <form onSubmit={store}>
 
-              <div class="mb-3">
-                <label  class="form-label">Nombre : </label>
+              <div className="mb-3">
+                <label  className="form-label">Nombre : </label>
                 <input 
                 value={Nombre} 
                 onChange={(e)=>setNombre(e.target.value)} 
                 type="text" 
-                class="form-control"  
+                className="form-control"  
                 placeholder="Ingresa el nombre del auto" required/>            
               </div>
 
-              <div class="mb-3">
-                <label  class="form-label">Marca : </label>
+              <div className="mb-3">
+                <label  className="form-label">Marca : </label>
                 <input 
                 value={Marca} 
                 onChange={(e)=>setMarca(e.target.value)} 
                 type="text" 
-                class="form-control"  
+                className="form-control"  
                 placeholder="Ingresa la marca del auto" required/>            
               </div>
 
-              <div class="mb-3">
-                <label for="" class="form-label">Modelo : </label>
+              <div className="mb-3">
+                <label className="form-label">Modelo : </label>
                 <input 
                 value={Modelo} 
                 onChange={(e)=>setModelo(e.target.value)} 
                 type="text" 
-                class="form-control"  
+                className="form-control"  
                 placeholder="Ingresa el modelo del auto" required/>            
               </div>
 
-              <button type="submit" class="btn btn-primary">Guardar</button>
+              <button type="submit" className="btn btn-primary">Guardar</button>
               <Link to='/' className='btn btn-danger mx-2'>Cancelar</Link>
 
             </form>

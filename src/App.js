@@ -1,4 +1,3 @@
-import './App.css';
 import Create from './components/Create';
 import Edit from './components/Edit';
 import Show from './components/Show';
