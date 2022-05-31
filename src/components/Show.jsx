@@ -5,6 +5,9 @@ import { db } from '../firebase/firebase'
 import { async } from '@firebase/util'
 import Swal from 'sweetalert2'
 
+import withReactContent from 'sweetalert2-react-content'
+const MySwal = withReactContent(Swal)
+
 const Show = () => {
     //Configurando los hooks
     const [autos, setAutos] = useState( [] )
@@ -19,7 +22,7 @@ const Show = () => {
         setAutos(
             data.docs.map( (doc) => ( {...doc.data(),id:doc.id}))
         )
-        console.log(autos)
+        //console.log(autos)
     }
 
     //Eliminar
@@ -32,7 +35,26 @@ const Show = () => {
 
 
     //Confirmación de eliminación
-
+    const   confirmDelete= (id)=>{
+        MySwal.fire({
+            title: '¿Está seguro de realizar está acción?',
+            text: "¡Eliminaras esté registro!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, eliminar!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                deleteAuto(id)
+              Swal.fire(
+                '¡Eliminado!',
+                'Tu registro fue eliminado.',
+                'success'
+              )
+            }
+          })
+    }
     //Usando useEffect
     useEffect(() => {
         getAutos()
@@ -68,7 +90,7 @@ const Show = () => {
                                       <td>{index.Modelo}</td>
                                       <td>
                                           <Link to={`/edit/${index.id}`} className='btn btn-light'><i className="fa-solid fa-pen"></i></Link>
-                                          <button onClick={() => {deleteAuto(index.id)}} className='btn btn-danger'><i className="fa-solid fa-trash-can"></i></button>
+                                          <button onClick={() => {confirmDelete(index.id)}} className='btn btn-danger'><i className="fa-solid fa-trash-can"></i></button>
 
                                       </td>
 

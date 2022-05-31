@@ -1,8 +1,89 @@
-import React from 'react'
+import {useState, useEffect} from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { getDoc, updateDoc, doc } from 'firebase/firestore';
+import { db } from '../firebase/firebase';
+import { async } from '@firebase/util';
 
 const Edit = () => {
+  const [Nombre, setNombre] = useState('')
+  const [Marca, setMarca] = useState('')
+  const [Modelo, setModelo] = useState('')
+
+  const navigate = useNavigate()
+  const {id}  = useParams()
+
+  const update =async (e) =>{
+    e.preventDefault()
+    const product = doc(db,"Autos",id)
+    const data ={ Nombre: Nombre,
+      Marca: Marca,
+      Modelo: Modelo}
+      await updateDoc(product, data)
+      navigate('/')
+
+  }
+
+  const getProductById =async (id) => {
+      const product = await getDoc(doc(db,"Autos",id))
+      if (product.exists()) {
+        //console.log(product.data())
+        setNombre(product.data().Nombre)
+        setMarca(product.data().Marca)
+        setModelo(product.data().Modelo)
+      } else {
+        console.log("no existe")
+      }
+  }
+
+  useEffect (() =>{
+    getProductById(id)
+  },[])
   return (
-    <div>Edit</div>
+    <div className="container">
+        <div className="row">
+          <div className="col">
+            <h1> EDIT</h1>
+
+            <form onSubmit={update}>
+
+              <div class="mb-3">
+                <label  class="form-label">Nombre : </label>
+                <input 
+                value={Nombre} 
+                onChange={(e)=>setNombre(e.target.value)} 
+                type="text" 
+                class="form-control"  
+                placeholder="nombre auto"/>            
+              </div>
+
+              <div class="mb-3">
+                <label  class="form-label">Marca : </label>
+                <input 
+                value={Marca} 
+                onChange={(e)=>setMarca(e.target.value)} 
+                type="text" 
+                class="form-control"  
+                placeholder="marca auto"/>            
+              </div>
+
+              <div class="mb-3">
+                <label for="" class="form-label">Modelo : </label>
+                <input 
+                value={Modelo} 
+                onChange={(e)=>setModelo(e.target.value)} 
+                type="text" 
+                class="form-control"  
+                placeholder="modelo auto"/>            
+              </div>
+
+              <button type="submit" class="btn btn-success">Update</button>
+
+
+            </form>
+
+          </div>
+        </div>
+      </div>
   )
 }
 
