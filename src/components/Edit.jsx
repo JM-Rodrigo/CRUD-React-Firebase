@@ -4,6 +4,7 @@ import { getDoc, updateDoc, doc } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 import Swal from 'sweetalert2'
 import { Link } from 'react-router-dom'
+import logo_2 from '../img/logo_2.png'
 
 
 
@@ -30,7 +31,6 @@ const Edit = () => {
         confirmButtonText: 'Guardar',
         cancelButtonText: 'Cancelar',
       }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
           navigate('/')
          
@@ -46,7 +46,6 @@ const Edit = () => {
   const getProductById =async (id) => {
       const product = await getDoc(doc(db,"Autos",id))
       if (product.exists()) {
-        //console.log(product.data())
         setNombre(product.data().Nombre)
         setMarca(product.data().Marca)
         setModelo(product.data().Modelo)
@@ -62,11 +61,13 @@ const Edit = () => {
     <div className="container">
         <div className="row">
           <div className="col">
-            <h1> EDIT</h1>
-
+            <div className='title'>
+              <h1>EDITA LA INFORMACIÓN DEL AUTO</h1>
+            </div>
+            <img  src={logo_2} aria-hidden className='img-fluid' alt='Responsive image' />
             <form onSubmit={update}>
 
-              <div className="mb-3">
+              <div className="mb-3 mt-4">
                 <label  className="form-label">Nombre : </label>
                 <input 
                 value={Nombre} 
@@ -96,12 +97,9 @@ const Edit = () => {
                 placeholder="Ingresa el modelo del auto" required/>            
               </div>
 
-              <button type="submit" className="btn btn-success">Update</button>
-            
-              
+              <button type="submit" className="btn btn-warning">Actualizar</button>
+          
               <Link to='/' className='btn btn-danger mx-2'>Cancelar</Link>
-                  
-
 
             </form>
 

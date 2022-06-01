@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { collection, addDoc } from "firebase/firestore"
 import { db } from "../firebase/firebase"
 import { Link } from 'react-router-dom'
+import logo_1 from '../img/logo_1.png'
 
 const Create = () => {
   const [Nombre, setNombre] = useState()
@@ -28,11 +29,13 @@ const Create = () => {
       <div className="container">
         <div className="row">
           <div className="col">
-            <h1>CREATE</h1>
-
+            <div className='title'>
+              <h1>AÑADE UN NUEVO AUTO</h1>
+            </div>
+            <img  src={logo_1} aria-hidden className='img-fluid' alt='Responsive image' />
             <form onSubmit={store}>
 
-              <div className="mb-3">
+              <div className="mb-3 mt-4">
                 <label  className="form-label">Nombre : </label>
                 <input 
                 value={Nombre} 
