@@ -97,8 +97,8 @@ const Show = () => {
                                       <td>{index.Marca}</td>
                                       <td>{index.Modelo}</td>
                                       <td>
-                                          <Link to={`/edit/${index.id}`} className='btn btn-primary'><i className="fa-solid fa-pen"></i></Link>
-                                          <button  onClick={() => {confirmDelete(index.id)}} className='btn btn-danger mx-2'><i className="fa-solid fa-trash-can"></i></button>
+                                          <Link to={`/edit/${index.id}`} className='btn btn-primary m-lg-2'><i className="fa-solid fa-pen"></i></Link>
+                                          <button  onClick={() => {confirmDelete(index.id)}} className='btn btn-danger'><i className="fa-solid fa-trash-can"></i></button>
 
                                       </td>
 
